@@ -1,7 +1,7 @@
 let accessToken
 
 const clientID = '1763191ebd264123b851f5802f286773'
-const redirectUri = 'http://localhost:3000/'
+const redirectUri = 'http://127.0.0.1:5173/'
 
 const Spotify = {
     getAccessToken() {
@@ -70,7 +70,8 @@ const Spotify = {
                     method : 'POST',
                     body: JSON.stringify({
                         name: name
-                    }).then(response => response.json())
+                    })
+                        .then(response => response.json())
                         .then(jsonResponse => {
                             const playlistId = jsonResponse.id
                             const trackEp = `https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`
